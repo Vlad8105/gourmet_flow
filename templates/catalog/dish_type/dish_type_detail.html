@@ -1,0 +1,14 @@
+<h1>Meal type details: {{ dish_type.name }}</h1>
+
+<h3>Dishes of this type:</h3>
+<ul>
+    {% for dish in dish_type.dishes.all %}
+        <li>{{ dish.name }}</li>
+    {% empty %}
+        <li>There are no dishes that belong to this type.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'dish-type-update' pk=dish_type.pk %}">Update</a>
+<a href="{% url 'dish-type-delete' pk=dish_type.pk %}">Delete</a>
+<a href="{% url 'dish-type-list' %}">Return to list</a>

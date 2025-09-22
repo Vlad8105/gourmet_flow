@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Cooks List{% endblock %}
+
+{% block content %}
+<div class="list-container">
+    <h1>Cook list</h1>
+    <a href="{% url 'catalog:cooks-create' %}" class="btn-create">Add a new chef</a>
+    <br><br>
+    
+    {% if cook_list %}
+        <ul class="cooks-list">
+        {% for cook in cook_list %}
+            <li class="cook-item">
+                <a href="{% url 'catalog:cooks-detail' pk=cook.pk %}">
+                    {{ cook.first_name }} {{ cook.last_name }}
+                </a>
+                  <span class="experience">{{ cook.years_of_experience }} years of experience</span>
+                <a href="{% url 'catalog:cooks-update' pk=cook.pk %}" class="btn-update">Update</a>
+                <a href="{% url 'catalog:cooks-delete' pk=cook.pk %}" class="btn-delete">Delete</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Cooks have not been added yet.</p>
+    {% endif %}
+    
+    <a href="/" class="home-button">To the main page</a>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<h1>Ingredient details: {{ ingredient.name }}</h1>
+
+<h2>Dishes with this ingredient</h2>
+{% if ingredient.dishes.all %}
+    <ul>
+        {% for dish in ingredient.dishes.all %}
+            <li><a href="{% url 'dishes-detail' pk=dish.pk %}">{{ dish.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>This ingredient is not used in any dish.</p>
+{% endif %}
+
+<a href="{% url 'ingredients-list' %}">Back to ingredients list</a>

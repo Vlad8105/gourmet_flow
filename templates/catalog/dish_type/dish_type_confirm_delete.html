@@ -1,0 +1,9 @@
+<h1>Delete dish type?</h1>
+<p>Are you sure you want to delete the dish type? "{{ dish_type.name }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+
+<a href="{% url 'dish-type-list' %}">Cancel</a>

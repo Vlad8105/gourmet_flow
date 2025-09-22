@@ -1,0 +1,27 @@
+<h1>Dish details: {{ dish.name }}</h1>
+
+<p><strong>Type of dish:</strong> {{ dish.dish_type.name }}</p>
+<p><strong>Price:</strong> {{ dish.price }} UAH.</p>
+<p><strong>Description:</strong> {{ dish.description|default:"Description null." }}</p>
+
+<h3>Cooks are cooking:</h3>
+<ul>
+    {% for cook in dish.cooks.all %}
+        <li>{{ cook.first_name }} {{ cook.last_name }} ({{ cook.years_of_experience }} years of experience)</li>
+    {% empty %}
+        <li>There are no chefs preparing this dish yet.</li>
+    {% endfor %}
+</ul>
+
+<h3>Ingredients:</h3>
+<ul>
+    {% for ingredient in dish.ingredients.all %}
+        <li>{{ ingredient.name }}</li>
+    {% empty %}
+        <li>Ingredients not listed.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'dishes-update' pk=dish.pk %}">Update</a>
+<a href="{% url 'dishes-delete' pk=dish.pk %}">Delete</a>
+<a href="{% url 'dishes-list' %}">Return to list</a>

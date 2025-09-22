@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}List of dish types{% endblock %}
+
+{% block content %}
+<div class="list-container">
+<h1>List of dish types</h1>
+<a href="{% url 'catalog:dish-type-create' %}">Add new type</a>
+<br><br>
+{% if dish_type_list %}
+    <ul>
+    {% for dish_type in dish_type_list %}
+        <li>
+            <a href="{% url 'catalog:dish-type-detail' pk=dish_type.pk %}">
+                {{ dish_type.name }}
+            </a>
+            <a href="{% url 'catalog:dish-type-update' pk=dish_type.pk %}">Update</a>
+            <a href="{% url 'catalog:dish-type-delete' pk=dish_type.pk %}">delete</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Meal types have not been added yet.</p>
+{% endif %}
+<a href="/" class="home-button">To the main page</a>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+<h1>Delete cook?</h1>
+<p>Are you sure you want to delete the cook? "{{ cook.first_name }} {{ cook.last_name }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+
+<a href="{% url 'cooks-list' %}">Cancel</a>

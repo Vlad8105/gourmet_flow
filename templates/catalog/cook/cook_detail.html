@@ -1,0 +1,17 @@
+<h1>Detail cook</h1>
+
+<p><strong>Name:</strong> {{ cook.first_name }} {{ cook.last_name }}</p>
+<p><strong>Experience:</strong> {{ cook.years_of_experience }} years</p>
+
+<h3>The dishes he prepares:</h3>
+<ul>
+    {% for dish in cook.dishes.all %}
+        <li>{{ dish.name }}</li>
+    {% empty %}
+        <li>This cook is not preparing any dishes yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'cooks-update' pk=cook.pk %}">Update</a>
+<a href="{% url 'cooks-delete' pk=cook.pk %}">Delete</a>
+<a href="{% url 'cooks-list' %}">Return to list</a>

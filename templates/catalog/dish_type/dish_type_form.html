@@ -1,0 +1,9 @@
+<h1>{% if form.instance.pk %}Edit dish type{% else %}Add a new dish type{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'catalog:dish-type-list' %}">Cansel</a>

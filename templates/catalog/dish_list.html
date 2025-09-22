@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}List of dishes{% endblock %}
+
+{% block content %}
+<div class="list-container">
+<h1>List of dishes</h1>
+<a href="{% url 'catalog:dishes-create' %}">Add a new dish</a>
+<br><br>
+{% if dish_list %}
+    <ul>
+    {% for dish in dish_list %}
+        <li>
+            <a href="{% url 'catalog:dishes-detail' pk=dish.pk %}">
+                {{ dish.name }} ({{ dish.dish_type.name }})
+            </a>
+            - {{ dish.price }} грн.
+            <a href="{% url 'catalog:dishes-update' pk=dish.pk %}">Update</a>
+            <a href="{% url 'catalog:dishes-delete' pk=dish.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Dishes have not been added yet.</p>
+{% endif %}
+<a href="/" class="home-button">To the main page</a>
+</div>
+{% endblock %}
