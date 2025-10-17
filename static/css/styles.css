@@ -13,3 +13,24 @@
     justify-content: center;
     align-items: center;
 }
+
+body {
+    background-image: url('../restaurant.png');
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.navbar {
+    background-color: rgba(52, 58, 64, 0.85) !important;
+}
