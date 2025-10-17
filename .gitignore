@@ -6,4 +6,3 @@ static/.DS_Store
 db.sqlite3
 .env
 css/.DS_Store
-**/.DS_Store
