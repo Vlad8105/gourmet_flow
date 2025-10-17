@@ -1,9 +1,36 @@
-<h1>{% if form.instance.pk %}Update cook{% else %}Add a new cook{% endif %}</h1>
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+{% block title %}
+    {% if form.instance.pk %}Update Cook{% else %}Add New Cook{% endif %}
+{% endblock %}
 
-<a href="{% url 'catalog:cooks-list' %}">Cancel</a>
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8 col-lg-6">
+
+        <h1 class="mb-4 text-center">
+            {% if form.instance.pk %}Update cook{% else %}Add a new cook{% endif %}
+        </h1>
+
+        <div class="text-center mb-4">
+            <img src="{% static 'istockphoto.jpg' %}"
+                 alt="Chef Icon"
+                 class="img-fluid rounded-circle border border-3 border-primary"
+                 style="max-width: 120px; height: auto;">
+        </div>
+
+        <form method="post" class="card p-4 shadow-sm">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary mt-3 w-100">Save</button>
+        </form>
+
+        <a href="{% url 'catalog:cooks-list' %}" class="btn btn-outline-secondary mt-3 w-100">Cancel</a>
+
+    </div>
+</div>
+{% endblock %}

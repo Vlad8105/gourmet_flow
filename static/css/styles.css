@@ -15,7 +15,7 @@
 }
 
 body {
-    background-image: url('../restaurant.png');
+    background-image: url("../istockphoto.jpg");
 
     background-size: cover;
     background-position: center center;
@@ -26,27 +26,11 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.3);
     padding: 20px;
     border-radius: 8px;
 }
 
 .navbar {
     background-color: rgba(52, 58, 64, 0.85) !important;
-}
-
-.cook-form-container {
-    background-image: url('../restaurant.png');
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: top right;
-    padding-top: 60px;
-    position: relative;
-}
-
-.cook-form-container .card {
-    background-image: url('../restaurant.png');
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: 95% 20px;
 }
